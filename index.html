@@ -39,6 +39,9 @@
             })();
         </script>
         <!-- End Matomo Code -->
+
+        <!-- Markdown -->
+        <script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.1/dist/showdown.min.js"></script>
     </head>
 
     <body>
@@ -67,16 +70,15 @@
                         />
                     </a>
                     <a
-                        class="link header__link is-discourse"
-                        href="https://forum.codidact.org"
+                        class="link header__link is-meta"
+                        href="https://meta.codidact.com"
                         target="_blank"
-                        title="Discourse (forum)"
+                        title="Meta (Q&A)"
                     >
                         <img
-                            src="assets/img/3rd-party/logo-discourse.png"
+                            src="assets/img/3rd-party/logo-meta.png"
                             class="link__logo"
-                            alt="Discourse logo"
-                            width="46"
+                            alt="Meta logo"
                             height="46"
                         />
                     </a>
@@ -117,6 +119,7 @@
                     <h1 class="heading--primary">The Open Source Q&amp;A Platform.</h1>
                     <p class="heading--tertiary">For the community.</p>
                     <p class="heading--tertiary">By the community.</p>
+                    <p class="heading--tertiary"><a href="https://codidact.com/">Join our communities</a></p>
                 </div>
                 <div class="container hero__image">
                     <img src="assets/img/brand-mark.svg" class="large-brand-mark" alt="large Codidact brand mark" />
@@ -136,7 +139,8 @@
         <section class="row content-wrapper what-is-codidact">
             <h2 class="heading--secondary">What is Codidact?</h2>
             <p>
-                <strong>Ever had a question? Ever had an answer?</strong> We believe asking and answering questions
+                <strong>Ever had a question? Ever had an answer? Ever had knowledge to share?</strong>
+                We believe that coming together to inquire and learn, to share knowledge and to teach each other,
                 makes the world a better place. We also believe that Q&A communities should be free from the politics
                 and shenanigans of private, profit-focused companies.
             </p>
@@ -145,18 +149,18 @@
             <div class="content-wrapper">
                 <h3 class="heading--secondary">Community First</h3>
                 <p>
-                    Our goal is to build an open-source platform for community-driven Q&A sites. Our aim is to keep it
-                    accessible for beginners and newcomers to the community while optimized for long-time users,
-                    focusing around the answer. We'll fund it by seeking donations, not by paywalls, and work with
-                    individual communities that want to join us.
+                    Our goal is to build an open-source platform for community-driven Q&A sites. 
+                    We aim to welcome beginners and experts alike and to empower communities of learners and teachers. 
+                    We'll fund it by seeking donations, not by paywalls, and work with individual communities that want to join us.
                 </p>
             </div>
         </section>
         <section class="row content-wrapper call-to-action">
             <p>
-                Ultimately, we are all looking for answers to life's big - and little questions. We want to build an
-                amazing Q&A platform that makes it easier to ask and curate questions in a non-hostile environment and
-                get to the answers you need, without the fuss.
+                Ultimately, we are all looking for answers to life's big &mdash; and little &mdash; questions. 
+                We want to build an amazing platform that makes it easier to ask questions
+                and curate answers in a non-hostile environment,
+                so you can get to the answers you need, without the fuss.
             </p>
             <p>
                 <strong>Whether it’s a question about Python or pythons, we want Codidact to have you covered.</strong>
@@ -177,7 +181,7 @@
                     </header>
                     <h4 class="card__heading">GitHub</h4>
                     <p class="card__text">
-                        All of the Codidact code is hosted on Github. Codidact is open-source - PRs are welcomed.
+                        All of the Codidact code is hosted on Github. Codidact is open-source &mdash; PRs are welcomed.
                     </p>
                 </a>
                 <a
@@ -202,25 +206,25 @@
                     </p>
                 </a>
                 <a
-                    class="card card--link discourse"
-                    href="https://forum.codidact.org"
+                    class="card card--link meta"
+                    href="https://meta.codidact.com"
                     target="_blank"
-                    title="Discourse (forum)"
+                    title="Meta"
                 >
                     <header>
                         <img
-                            src="assets/img/3rd-party/logo-discourse-white.svg"
+                            src="assets/img/3rd-party/logo-meta.svg"
                             class="card__logo"
-                            alt="Discourse logo"
-                            width="60"
+                            alt="Meta logo"
                             height="60"
                         />
                     </header>
-                    <h4 class="card__heading">Forum</h4>
+                    <h4 class="card__heading">Meta</h4>
                     <p class="card__text">
-                        Most of our discussion before approval happens on our Discourse forum server.
+                        Discussions about our project and communities happen on our Meta site.
                     </p>
                 </a>
+
                 <a
                     class="card card--link discord"
                     href="https://discord.gg/WZ7aTst"
@@ -244,13 +248,56 @@
                 </a>
             </div>
         </section>
-        <section class="row content-wrapper signup">
-            <div class="container">
-                <h4 class="heading--tertiary">Interested?</h4>
-                <p>
-                    Alternatively, if you're interested in Codidact and want to be notified as things progress, send an email to 
-                    <a class="subscribe" href="mailto:announcements-subscribe@codidact.org">announcements-subscribe@codidact.org</a> to subscribe to our mailing list
-                </p>
+        <section class="row content-wrapper what-is-codidact">
+            <h2 class="heading--secondary">Join our mailing list</h2>
+            <div>
+                <form class="js-form" action="subscribe.php" method="POST">
+                    <input
+                        type="email"
+                        class="js-email-input"
+                        name="mail_input"
+                           placeholder="email@example.com"
+                    />
+                    <p class="js-form-response"></p>
+                    <div class="loader">
+                        <div class="bar"></div>
+                    </div>
+                    <button class="has-top-small-margin js-submit-button" disabled>Subscribe</button>
+                </form>
+            </div>
+        </section>
+        <section class="row content-wrapper">
+            <h2 class="heading--secondary">Frequently Asked Questions</h2>
+            <div id="faq">
+                <!--script src="https://gist.github.com/ArtOfCode-/b6088cc5ad9c98d4dfa9f16e234a1f85.js"></script-->
+                <script>
+'use strict';
+
+var md_source_doc_location = 'https://gist.githubusercontent.com/ArtOfCode-/b6088cc5ad9c98d4dfa9f16e234a1f85/raw/62d44804cc453bdea3f193d02891316402b730b3/faq.md';
+
+function parse_md(input) {
+    var converter = new showdown.Converter();
+    var html = converter.makeHtml(input);
+    return html;
+}
+
+var md_doc_XML_HTTP_request = new XMLHttpRequest();
+
+md_doc_XML_HTTP_request.onreadystatechange = function (data) {
+    if (data.target.readyState == 4 /* complete */) {
+        var response_text = data.target.responseText;
+        var parsed = parse_md(response_text);
+        var faq_div = document.querySelector('div#faq');
+        var span = document.createElement('span');
+        span.innerHTML = parsed;
+        faq_div.appendChild(span);
+    }
+}
+
+md_doc_XML_HTTP_request.open('GET', md_source_doc_location);
+
+md_doc_XML_HTTP_request.send();
+                </script>
             </div>
         </section>
         <footer class="footer row is-full-width">
